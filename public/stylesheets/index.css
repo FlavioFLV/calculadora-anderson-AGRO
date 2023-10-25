@@ -22,8 +22,7 @@ html::-webkit-scrollbar-thumb {
 
 header {
     position: relative;
-    display: flex;
-    justify-content: center;
+    display: block;
     color: #FFFFFF;
     text-align: center;
     overflow: hidden;
@@ -49,8 +48,9 @@ header .content {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    height: 100%;
     
-    padding: 1rem;
+    padding: .5rem;
 }
 
 .title-page {
@@ -638,14 +638,15 @@ button[disabled]:hover {
 
 @media screen and (max-width: 1023.9px) {
     header {
-        height: 90vh;
+        height: 95vh;
     }
 
     header::after {
         content: "";
         position: absolute;
-        bottom: 1rem;
-        height: .25rem;
+        bottom: .5rem;
+        height: .175rem;
+        transform: translateX(-50%);
         width: 7rem;
         background-color: #FFF;
         border-radius: 6px;

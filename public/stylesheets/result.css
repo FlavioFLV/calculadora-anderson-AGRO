@@ -18,7 +18,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 2rem;
     background-image: url("../images/aerial-view-on-agro-silos-granary-elevator-on-agro-2022-11-07-03-54-40-utc\ \(1\).png");
     background-size: cover;
     color: #FFFFFF;
@@ -26,6 +26,20 @@ header {
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     height: 100vh;
+
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    padding: 2rem 0;
+}
+header::-webkit-scrollbar {
+    width: 8px;
+}
+
+header::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 20px;
+    border-color: 1px solid #FFF;
 }
 
 header .content {
