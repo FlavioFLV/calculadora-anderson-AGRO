@@ -1,0 +1,147 @@
+[
+  {
+    "cod": "47.12-1-00",
+    "descricao": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios",
+    "calculo": 0.95
+  },
+  {
+    "cod": "46.39-7-01",
+    "descricao": "Comércio atacadista de produtos alimentícios em geral",
+    "calculo": 0.95
+  },
+  {
+    "cod": "46.39-7-02",
+    "descricao": "Comércio atacadista de produtos alimentícios em geral, com atividade de fracionamento e acondicionamento associada",
+    "calculo": 0.95
+  },
+  {
+    "cod": "47.71-7-01",
+    "descricao": "Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas.",
+    "calculo": 0.7
+  },
+  {
+    "cod": "47.71-7-03",
+    "descricao": "Comércio varejista de produtos farmacêuticos homeopáticos.",
+    "calculo": 0.7
+  },
+  {
+    "cod": "47.71-7-04",
+    "descricao": "Comércio varejista de medicamentos veterinários.",
+    "calculo": 0.7
+  },
+  {
+    "cod": "45.43-9-00",
+    "descricao": "Manutenção e reparação de motocicletas e motonetas",
+    "calculo": 0.9
+  },
+  {
+    "cod": "45.30-7-01",
+    "descricao": "Comércio por atacado de peças e acessórios novos para veículos automotores",
+    "calculo": 0.9
+  },
+  {
+    "cod": "45.30-7-02",
+    "descricao": "Comércio por atacado de pneumáticos e câmaras-de-ar",
+    "calculo": 0.9
+  },
+  {
+    "cod": "45.30-7-03",
+    "descricao": "Comércio a varejo de peças e acessórios novos para veículos automotores",
+    "calculo": 0.9
+  },
+  {
+    "cod": "45.30-7-04",
+    "descricao": "Comércio a varejo de peças e acessórios usados para veículos automotores",
+    "calculo": 0.9
+  },
+  {
+    "cod": "45.30-7-05",
+    "descricao": "Comércio a varejo de pneumáticos e câmaras-de-ar",
+    "calculo": 0.9
+  },
+  {
+    "cod": "45.30-7-06",
+    "descricao": "Representantes comerciais e agentes do comércio de peças e acessórios novos e usados para veículos automotores",
+    "calculo": 0.9
+  },
+  {
+    "cod": "56.11-2-01",
+    "descricao": "Restaurantes e similares",
+    "calculo": 0.4
+  },
+  {
+    "cod": "56.11-2-04",
+    "descricao": "Bares e outros estabelecimentos especializados em servir bebidas, sem entretenimento",
+    "calculo": 0.4
+  },
+  {
+    "cod": "56.11-2-05",
+    "descricao": "Bares e outros estabelecimentos especializados em servir bebidas, com entretenimento",
+    "calculo": 0.4
+  },
+  {
+    "cod": "56.11-2-03",
+    "descricao": "Lanchonetes, casas de chá, de sucos e similares",
+    "calculo": 0.4
+  },
+  {
+    "cod": "47.71-7-01",
+    "descricao": "Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",
+    "calculo": 0.8
+  },
+  {
+    "cod": "47.72-5-00",
+    "descricao": "Comércio varejista de cosméticos, produtos de perfumaria e de higiene pessoal",
+    "calculo": 0.8
+  },
+  {
+    "cod": "47.23-7-00",
+    "descricao": "Comércio varejista de bebidas",
+    "calculo": 0.9
+  },
+  {
+    "cod": "47.29-6-02",
+    "descricao": "Comércio varejista de mercadorias em lojas de conveniência",
+    "calculo": 0.9
+  },
+  {
+    "cod": "47.44-0-05",
+    "descricao": "Comércio varejista de materiais de construção não especificados anteriormente",
+    "calculo": 0.25
+  },
+  {
+    "cod": "47.44-0-99",
+    "descricao": "Comércio varejista de materiais de construção em geral",
+    "calculo": 0.25
+  },
+  {
+    "cod": "47.41-5-00",
+    "descricao": "Comércio varejista de tintas e materiais para pintura",
+    "calculo": 0.25
+  },
+  {
+    "cod": "47.84-9-00",
+    "descricao": "Comércio varejista de gás liquefeito de petróleo (GLP)",
+    "calculo": 0.95
+  },
+  {
+    "cod": "47.89-0-04",
+    "descricao": "Comércio varejista de animais vivos e de artigos e alimentos para animais de estimação",
+    "calculo": 0.25
+  },
+  {
+    "cod": "41.20-4-00",
+    "descricao": "Construção de edifícios",
+    "calculo": 0.11
+  },
+  {
+    "cod": "81.11-7-00",
+    "descricao": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+    "calculo": 0.11
+  },
+  {
+    "cod": "80.11-1-01",
+    "descricao": "Atividades de vigilância e segurança privada",
+    "calculo": 0.11
+  }
+]

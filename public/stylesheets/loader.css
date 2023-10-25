@@ -1,0 +1,100 @@
+.loader-box {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-box.form {
+  background-color: rgba(0, 0, 0, .1);
+  backdrop-filter: blur(4px);
+}
+
+.loader-box.hide {
+  display: none;
+}
+
+.loader {
+  width: 11rem;
+  height: 11rem;
+  border: 12px dotted #000;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 12px dotted greenyellow;
+  border-style: solid solid dotted;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  25% {
+    opacity: .4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: .4;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .loader {
+    width: 7rem;
+    height: 7rem;
+    border: 6px dotted #000;
+    border-style: solid solid dotted dotted;
+  }
+
+  .loader::after {
+    width: 5rem;
+    height: 5rem;
+    border: 6px dotted greenyellow;
+    border-style: solid solid dotted;
+  }
+}

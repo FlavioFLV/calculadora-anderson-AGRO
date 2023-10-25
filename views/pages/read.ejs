@@ -1,0 +1,75 @@
+    <%- include("../partials/head") %>
+    <link rel="stylesheet" href="stylesheets/read.css">
+</head>
+
+<body>
+    <div class="table-container">
+        <% data.forEach(item => { %>
+         
+            <div class="item-content">
+                <div class="header">
+                    <i class="ph ph-caret-down"></i>
+                    <div class="names">
+                        <p class="companie"><%-item.razao_social%></p>
+                        <p class="name"><%-item.name%></p>
+                    </div>
+                    <div class="money-credits">
+                        <div class="monthly credit">
+                            <span>Crédito mensal</span>
+                            <p><%- Number(item.credito_mensal).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})%></p>
+                        </div>
+                        <div class="annual credit">
+                            <span>Crédito últimos 60 meses</span>
+                            <p><%- Number(item.credito_5_anos).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="companie item-data">
+                        <div class="cnpj content-box">
+                            <span>CNPJ: </span>
+                            <p><%- item.cnpj%></p>   
+                        </div>
+                        <div class="regime-companie content-box">
+                            <span>Regime da empresa: </span>
+                            <p><%- item.regime_da_empresa.replace("-", " ").toUpperCase()%></p>   
+                        </div>
+                        <div class="regime-calc content-box">
+                            <span>Regime calculado: </span>
+                            <p><%- item.regime_calculado.replace("-", " ").toUpperCase()%></p>
+                        </div>
+                        <div class="fat-mensal content-box">
+                            <span>Faturamento mensal: </span>
+                            <p><%- Number(item.vlrFatMensal).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})%></p>   
+                        </div>
+                        <div class="porcent-fat-inter content-box">
+                            <span>Porcentagen do faturamento interestadual: </span>
+                            <p><%- item.pctFatInter%>%</p>
+                        </div>
+                        <div class="compras-mensal content-box">
+                            <span>Compras mensal: </span>
+                            <p><%- Number(item.vlrComprasMensal).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})%></p>
+                        </div>
+                        <div class="porcent-compras-mensal content-box">
+                            <span>(%) Compras interestadual: </span>
+                            <p><%- item.pctComprasInter%>%</p>
+                        </div>
+                    </div>
+                    <div class="contact item-data">
+                        <div class="email content-box">
+                            <span>E-mail: </span>
+                            <p><%- item.email%></p>   
+                        </div>
+                        <div class="phone content-box">
+                            <span>Telefone: </span>
+                            <p><%- item.phone%></p>   
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+        <% }) %>
+    </div>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+</body>
