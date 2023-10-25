@@ -183,6 +183,12 @@ cnpjShield.addEventListener("input", async (e) => {
                     hideInputsSectionTwo(simples)
                     regimeCalculadoHidden.value = "simples-nacional";
                 }
+            } else if (data.statusRequest == "ENOTFOUND") {
+                cnpjFound = false;
+                
+                loaderSearchingCNPJShow(false);
+                razaoSocial.textContent = "Erro no servidor! Tente novamente.";
+                validateShieldsSecOne();
             } else {
                 cnpjFound = false;
                 
