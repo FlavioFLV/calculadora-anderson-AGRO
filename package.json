@@ -1,5 +1,5 @@
 {
-  "name": "calculadora-arte-fiscal",
+  "name": "calculadora-arte-fiscal-agro",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -22,8 +22,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "prisma": "^5.0.0"
-  }
+  "description": ""
 }
