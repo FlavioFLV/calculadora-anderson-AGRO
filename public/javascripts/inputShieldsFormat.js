@@ -11,6 +11,19 @@ export const formatCnpj = (e) => {
     e.target.value = valor;
 };
 
+export const formatCPF = (e) => {
+
+    let valor = e.target.value;
+
+    valor = valor.replace(/\D/g,"");
+    valor = valor.replace(/^(\d{3})(\d)/,"$1.$2");
+    valor = valor.replace(/^(\d{3}).(\d{3})(\d)/,"$1.$2.$3");
+    valor = valor.replace(/(\d{3})(\d)/,"$1-$2");
+
+    e.target.value = valor;
+};
+
+
 export const formatNumber = (e) => {
 
     let value = e.target.value.replace(/\D/g, '');
@@ -26,6 +39,17 @@ export const formatNumber = (e) => {
     e.target.value = value;
 }
 
+export const formatDate = (e) => {
+    let valor = e.target.value;
+
+    valor = valor.replace(/\D/g,"");
+    valor = valor.replace(/^(\d{2})(\d)/,"$1/$2");
+    valor = valor.replace(/^(\d{2})(\d{2})(\d)/,"$1/$2/$3");
+    valor = valor.replace(/(\d{2})(\d)/,"$1/$2");
+
+    e.target.value = valor;
+}
+
 export const formatPhone = (e) => {
     let valor = e.target.value;
 
@@ -34,5 +58,4 @@ export const formatPhone = (e) => {
     valor = valor.replace(/(\d)(\d{4})$/,"$1-$2")
 
     e.target.value = valor;
-
 };

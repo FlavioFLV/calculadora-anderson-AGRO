@@ -10,6 +10,34 @@ router.get('/', function(req, res, next) {
 });
 
 // const rapidapiKey = 'b0df82f0e7msh4853cea242367ffp1c8a9bjsn2278f2de348d';
+router.get('/api/consulta-cpf', async function(req, res) {
+  let cpf = req.query.cpf.replace(/\D/g, '');
+  let birthdate = req.query.birthdate;
+
+  // const args = {
+  //   "cpf":       cpf,
+  //   "birthdate": birthdate,
+  //   "origem":  "web",
+  //   "token":   "XJMtUuZXcSEmSlm_Rfj7W1ZsEzvj4rreJsbGZNAt",
+  //   "timeout": 300
+  // };
+  
+  // const options = {
+  //   method: 'POST',
+  //   url: 'https://api.infosimples.com/api/v2/consultas/receita-federal/cpf',
+  //   data: args
+  // };
+
+  // await axios(options)
+  //   .then(response => {
+  //     console.log(response.data)
+  //     res.json(response.data)
+  //   })
+
+  res.json({code: 200, data: [{nome: "FLAVIO PRADO DA CUNHA"}]})
+  
+});
+
 router.get('/api/consulta-cnpj', async function(req, res, next) {
   let cnpj = req.query.cnpj;
   // cnpj = cnpj.replaceAll(".","").replace("/", "").replace("-", "");
@@ -31,12 +59,7 @@ router.get('/api/consulta-cnpj', async function(req, res, next) {
   };
   
   const data = new Object();
-  try {
-  } catch (error) {
-    
-  }
   
-  try {
     await axios(options)
     .then(response => {
       
@@ -77,9 +100,6 @@ router.get('/api/consulta-cnpj', async function(req, res, next) {
       }
       res.json(data.statusRequest)
     })
-  } catch (error) {
-    res.json(data.statusRequest)
-  }
 })
 
 // router.post('/contato', async function(req, res, next) {

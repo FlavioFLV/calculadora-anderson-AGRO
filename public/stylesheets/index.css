@@ -132,6 +132,12 @@ form section .section-content {
     gap: 1rem;
 }
 
+form section .section-content .tab-content {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .form-title {
     margin-bottom: .25rem;
     border-bottom: 1px solid lightgray;
@@ -206,6 +212,49 @@ form .load-section .load {
     gap: .75rem;
 }
 
+nav.tab-menu-container ul {
+    all: unset;
+    display: flex;
+    gap: .5rem;
+}
+
+nav.tab-menu-container ul li {
+    width: 50%;
+    list-style: none;
+    text-align: center;
+}
+
+nav.tab-menu-container ul li label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    line-height: 3rem;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+}
+nav.tab-menu-container ul li label:hover {
+    transition: all ease-in-out .1s;
+    background-color: rgb(246, 253, 255);
+}
+
+nav.tab-menu-container ul li:has(input:checked) label {
+    background-color: lightblue;
+    color: #fff;
+    font-weight: 500;
+}
+nav.tab-menu-container ul li label i {
+    font-size: 1.25rem;
+}
+
+nav.tab-menu-container:has(#panel-1:checked) ~ .tab-content#panel-1,
+nav.tab-menu-container:has(#panel-2:checked) ~ .tab-content#panel-2 {
+    display: flex;
+}
+
 .input-wrapper {
     background-color: #efefef;
     border: 3px solid #efefef;
@@ -270,33 +319,39 @@ form .load-section .load {
     display: none;
 }
 
+.search-cpf,
 .search-cnpj {
     display: flex;
     flex-direction: column;
 }
 
-
+.search-cpf span,
 .search-cnpj span {
     font-weight: 500;
 }
 
+.search-cpf .searching,
 .search-cnpj .searching {
     display: none;
     align-items: center;
     color: #e7a572;
 }
+.search-cpf .searching.loading,
 .search-cnpj .searching.loading {
     display: flex;
 }
 
+.search-cpf .searching div,
 .search-cnpj .searching div {
     margin-right: 1rem;
 }
 
+.search-cpf .searching.show,
 .search-cnpj .searching.show {
     display: flex;
 }
 
+.search-cpf .loader-search,
 .search-cnpj .loader-search {
     height: 1.5rem;
     width: 1.5rem;
@@ -312,7 +367,6 @@ form .load-section .load {
         transform: rotate(360deg);
     }
 }
-
 
 .regime-container {
     display: flex;
@@ -665,6 +719,7 @@ button[disabled]:hover {
         border-radius: 0 0 12% 0;
     }
 
+    .search-cpf,
     .search-cnpj {
         flex-direction: row;
         align-items: flex-start;

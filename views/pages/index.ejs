@@ -34,41 +34,86 @@
             
             <section class="section-one current-section">
                 <div class="section-content">
-                    <div class="input-wrapper cnpj-shield">
-                        <label for="cnpj">CNPJ</label>
-                        <input id="cnpj" type="text" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18">
+
+                    <nav class="tab-menu-container">
+                        <ul>
+                            <li>
+                                <input name="tab" class="tab-menu" type="radio" id="panel-1" checked>
+                                <label for="panel-1">
+                                    <i class="ph-fill ph-user"></i>
+                                    Pessoa Física
+                                </label>
+                            </li>
+                            <li>
+                                <input name="tab" class="tab-menu" type="radio" id="panel-2">
+                                
+                                <label for="panel-2">
+                                    <i class="ph-fill ph-buildings"></i>
+                                    Pessoa Jurídica
+                                </label>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="tab-content" id="panel-1">
+                        <div class="input-wrapper cpf-shield">
+                            <label for="cpf">CPF</label>
+                            <input id="cpf" type="text" name="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14">
+                        </div>
+
+                        <div class="input-wrapper date-shield">
+                            <label for="date">Data de Nascimento</label>
+                            <input id="date" type="date" name="birthdate" inputmode="numeric" placeholder="00/00/0000">
+                        </div>
+                        
+                        <div class="search-cpf">Nome:
+                            <div class="searching">
+                                <div class="loader-search"></div>
+                                <span>Buscando suas informações...</span>
+                            </div>
+                            <span class="nome_PF"></span>
+                            <input id="nome_PF" type="hidden" name="nome_PF" value="">
+                        </div>
                     </div>
                     
-                    <div class="search-cnpj">Razão social:
-                        <div class="searching">
-                            <div class="loader-search"></div>
-                            <span>Buscando informações sobre sua empresa...</span>
+                    <div class="tab-content" id="panel-2">
+                        <div class="input-wrapper cnpj-shield">
+                            <label for="cnpj">CNPJ</label>
+                            <input id="cnpj" type="text" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18">
                         </div>
-                        <span class="razao-social"></span>
-                        <input id="razao-social" type="hidden" name="razao_social" value="">
-                    </div>
-                    
-                    <div class="regime-container">
-                        <label>Regime da empresa:</label>
-                        <div class="regime-content">
-
-                            <div>
-                                <input type="radio" name="regime_calculado" id="simplesNacional" value="simples-nacional" disabled>
-                                <label for="simplesNacional" class="regime-item">
-                                    <i class="ph ph-currency-dollar-simple"></i>
-                                    Simples Nacional
-                                </label>
+                        
+                        <div class="search-cnpj">Razão social:
+                            <div class="searching">
+                                <div class="loader-search"></div>
+                                <span>Buscando informações da sua empresa...</span>
                             </div>
-
-                            <div>
-                                <input type="radio" name="regime_calculado" id="lucroReal" value="lucro-presumido-real" disabled>
-                                <label for="lucroReal" class="regime-item">
-                                    <i class="ph ph-chart-line"></i>
-                                    Lucro Presumido / Real
-                                </label>
-                            </div>
-
+                            <span class="razao-social"></span>
+                            <input id="razao-social" type="hidden" name="razao_social" value="">
                         </div>
+
+                        <div class="regime-container">
+                            <label>Regime da empresa:</label>
+                            <div class="regime-content">
+    
+                                <div>
+                                    <input type="radio" name="regime_calculado" id="simplesNacional" value="simples-nacional" disabled>
+                                    <label for="simplesNacional" class="regime-item">
+                                        <i class="ph ph-currency-dollar-simple"></i>
+                                        Simples Nacional
+                                    </label>
+                                </div>
+    
+                                <div>
+                                    <input type="radio" name="regime_calculado" id="lucroReal" value="lucro-presumido-real" disabled>
+                                    <label for="lucroReal" class="regime-item">
+                                        <i class="ph ph-chart-line"></i>
+                                        Lucro Presumido / Real
+                                    </label>
+                                </div>
+    
+                            </div>
+                        </div>
+                        
                     </div>
 
                 </div>

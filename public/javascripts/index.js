@@ -1,7 +1,12 @@
-import { formatCnpj, formatNumber } from "./inputShieldsFormat.js";
+import { formatCnpj, formatCPF, formatDate, formatNumber } from "./inputShieldsFormat.js";
 
 const cnpjShield = document.querySelector(".cnpj-shield input");
 cnpjShield.addEventListener("input", formatCnpj)
+
+const cpfShield = document.querySelector(".cpf-shield input");
+cpfShield.addEventListener("input", formatCPF)
+
+const dateShield = document.querySelector(".date-shield input");
 
 const numberShield = document.querySelectorAll(".number-shield input");
 numberShield.forEach(shield => {
@@ -11,6 +16,27 @@ numberShield.forEach(shield => {
 const porcentShield = document.querySelectorAll(".input-wrapper .porcent");
 porcentShield.forEach(shield => {
     shield.addEventListener("input", formatNumber);
+})
+
+const inputs = document.querySelectorAll("input");
+const tabMenuContainer = document.querySelectorAll("nav.tab-menu-container label")
+
+tabMenuContainer.forEach(tab => {
+    tab.addEventListener("click", () => {
+        inputs.forEach(input => {
+            cpfFound = false;
+            cnpjFound = false;
+            validateShieldsSecOne()
+            input.value = "";
+        })
+        document.querySelectorAll(".tab-content span[class]")[0].textContent = "";
+        document.querySelectorAll(".tab-content span[class]")[1].textContent = "";
+
+        regime[0].disabled = true;
+        regime[1].disabled = true;
+        regime[0].checked = false;
+        regime[1].checked = false;
+    })
 })
 
 const buttonNextSection = document.querySelector(".button-next-section");
@@ -42,8 +68,9 @@ buttonNextSection.addEventListener("click", (e) => {
 
 
 let cnpjFound = false;
+let cpfFound = false;
 function validateShieldsSecOne() {
-    if (cnpjFound){
+    if (cnpjFound || cpfFound){
         buttonNextSection.removeAttribute("disabled");
         statusBar[0].classList.remove("hide");
         statusBar[1].classList.remove("hide");
@@ -91,6 +118,7 @@ function validateShieldsSecTwo () {
 };
     
 const razaoSocial = document.querySelector(".search-cnpj .razao-social");
+const nome = document.querySelector(".search-cpf .nome_PF");
 const regime = document.querySelectorAll(".regime-content input[type=radio]");
 const inputsSectionTwo = document.querySelectorAll(".section-two .input-wrapper");
 
@@ -107,22 +135,65 @@ function hideInputsSectionTwo(simples) {
 }
 
 const searchingCNPJ = document.querySelector(".search-cnpj .searching");
+const searchingCPF = document.querySelector(".search-cpf .searching");
 const razaoSocialModal = document.querySelector(".modal h2#razao-social");
 const codCnaeList = document.querySelector(".modal .codeCnae-content div");
 
-function loaderSearchingCNPJShow(search) {
-    search ? searchingCNPJ.classList.add("loading") : searchingCNPJ.classList.remove("loading");
+function loaderSearchingShow(search, doc) {
+    if (doc == "cpf") {
+        nome.textContent = ""
+        if (search) {
+            searchingCPF.classList.add("loading")
+        } else {
+            searchingCPF.classList.remove("loading")
+        }
+    }
+
+    if (doc == "cnpj") {
+        razaoSocial.textContent = ""
+        if (search) {
+            searchingCNPJ.classList.add("loading")
+        } else {
+            searchingCNPJ.classList.remove("loading")
+        }
+    }
 }
 
 let simples = false;
 let dataCNPJ;
+
+window.addEventListener("input", async (e) => {
+    
+    let validateYearBirthdate = dateShield.value;
+    validateYearBirthdate = String(validateYearBirthdate).split("-")[0]
+
+    if (cpfShield.value.length == 14 && validateYearBirthdate > 1000) {
+        
+        let cpf = cpfShield.value;
+        let birthdate = dateShield.value;
+
+        loaderSearchingShow(true, "cpf");
+
+        await fetch(`/api/consulta-cpf?cpf=${cpf}&birthdate=${birthdate}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if (data.code == 200) {
+                    cpfFound = true;
+                    validateShieldsSecOne()
+                    loaderSearchingShow(false, "cpf");
+                    nome.textContent = data.data[0].nome
+                }
+            })
+    }
+})
 
 cnpjShield.addEventListener("input", async (e) => {
     let cnpj = e.target.value;
     if (e.target.value.length == 18) {
         cnpj = cnpj.replaceAll(".","").replace("/", "").replace("-", "");
 
-        loaderSearchingCNPJShow(true);
+        loaderSearchingShow(true, "cnpj");
 
         await fetch(`/api/consulta-cnpj?cnpj=${cnpj}`)
         .then(response => response.json())
@@ -130,7 +201,7 @@ cnpjShield.addEventListener("input", async (e) => {
 
             if (data.statusRequest == 200) {
 
-                loaderSearchingCNPJShow(false);
+                loaderSearchingShow(false, "cnpj");
                 
                 dataCNPJ = data;
                 console.log(dataCNPJ);
@@ -186,13 +257,13 @@ cnpjShield.addEventListener("input", async (e) => {
             } else if (data.statusRequest == "ENOTFOUND") {
                 cnpjFound = false;
                 
-                loaderSearchingCNPJShow(false);
+                loaderSearchingShow(false, "cnpj");
                 razaoSocial.textContent = "Erro no servidor! Tente novamente.";
                 validateShieldsSecOne();
             } else {
                 cnpjFound = false;
                 
-                loaderSearchingCNPJShow(false);
+                loaderSearchingShow(false, "cnpj");
                 razaoSocial.textContent = "CNPJ NÃO ENCONTRADO!";
                 validateShieldsSecOne();
             }
@@ -202,7 +273,7 @@ cnpjShield.addEventListener("input", async (e) => {
             console.log(error);
             cnpjFound = false;
             
-            loaderSearchingCNPJShow(false);
+            loaderSearchingShow(false, "cnpj");
             razaoSocial.textContent = "CNPJ NÃO ENCONTRADO!";
             validateShieldsSecOne();
         });
