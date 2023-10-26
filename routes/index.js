@@ -14,27 +14,27 @@ router.get('/api/consulta-cpf', async function(req, res) {
   let cpf = req.query.cpf.replace(/\D/g, '');
   let birthdate = req.query.birthdate;
 
-  // const args = {
-  //   "cpf":       cpf,
-  //   "birthdate": birthdate,
-  //   "origem":  "web",
-  //   "token":   "XJMtUuZXcSEmSlm_Rfj7W1ZsEzvj4rreJsbGZNAt",
-  //   "timeout": 300
-  // };
+  const args = {
+    "cpf":       cpf,
+    "birthdate": birthdate,
+    "origem":  "web",
+    "token":   "XJMtUuZXcSEmSlm_Rfj7W1ZsEzvj4rreJsbGZNAt",
+    "timeout": 300
+  };
   
-  // const options = {
-  //   method: 'POST',
-  //   url: 'https://api.infosimples.com/api/v2/consultas/receita-federal/cpf',
-  //   data: args
-  // };
+  const options = {
+    method: 'POST',
+    url: 'https://api.infosimples.com/api/v2/consultas/receita-federal/cpf',
+    data: args
+  };
 
-  // await axios(options)
-  //   .then(response => {
-  //     console.log(response.data)
-  //     res.json(response.data)
-  //   })
+  await axios(options)
+    .then(response => {
+      console.log(response.data)
+      res.json(response.data)
+    })
 
-  res.json({code: 200, data: [{nome: "FLAVIO PRADO DA CUNHA"}]})
+  // res.json({code: 200, data: [{nome: "FULANO DE TAL SILVA"}]})
   
 });
 
