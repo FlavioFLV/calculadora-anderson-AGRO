@@ -57,7 +57,12 @@ window.addEventListener("input", async (e) => {
                     nextStepButton.removeAttribute("disabled");
                     
                     nome_PF_PJ[0].textContent = data.data[0].nome;
+                    
+                    return;
                 };
+                
+                searching[0].removeAttribute("show");
+                nome_PF_PJ[0].textContent = "Dados inválidos. CPF não encontrado.";
             });
     };
 
@@ -76,7 +81,7 @@ window.addEventListener("input", async (e) => {
                     nextStepButton.removeAttribute("disabled");
                     
                     nome_PF_PJ[1].textContent = data.razao_social;
-
+                    
                     if (data.simples_nacional_situacao.includes("NÃO")) {
                         regimeOption[0].checked = false;
                         regimeOption[1].checked = true;
@@ -88,7 +93,11 @@ window.addEventListener("input", async (e) => {
                         regimeOption[1].setAttribute("disabled", "")
                         regimeOption[0].removeAttribute("disabled")
                     }
+                    return;
                 };
+                
+                searching[1].removeAttribute("show");
+                nome_PF_PJ[1].textContent = "Dados inválidos. CNPJ não encontrado.";
             });
         
     }
