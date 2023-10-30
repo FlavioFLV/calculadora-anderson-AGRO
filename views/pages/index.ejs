@@ -1,200 +1,190 @@
     <%- include("../partials/head") %>
     <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet" href="stylesheets/loader.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body>
 
     <%- include("../partials/loader") %>
-    
-    <header>
-        <div class="content">
-            <div class="title-page">
-                <img src="images/Logo Arte FIscal_branco.png" alt="prancheta de conferencia">
-                <h1>Calculadora de Economia Tributária</h1>
-            </div>
-            <img class="central-image" src="images/rapaz.png" alt="prancheta de conferencia">
-            <p>Olá, empresário(a)!</p>
-            <p>Chegou o momento de finalmente saber os valores que você pode recuperar da Receita para o caixa da sua empresa.</p>
-        </div>
-    </header>
 
-    <main>
-        <div class="form-title">
-            <h1>Dados da Empresa:</h1>
-            <span>Preencha os dados abaixo para calcularmos quanto você tem a receber do governo.</span>
-        </div>
-        
-        <div class="status-bar">
-            <div class="status current-section hide">ATUAL</div>
-            <div class="status hide">Próximo</div>
-        </div>
-        
-        <form action="resultado" autocomplete="off" method="POST">
-            
-            <section class="section-one current-section">
-                <div class="section-content">
-
-                    <nav class="tab-menu-container">
-                        <ul>
-                            <li>
-                                <input name="tab" class="tab-menu" type="radio" id="panel-1" checked>
-                                <label for="panel-1">
-                                    <i class="ph-fill ph-user"></i>
-                                    Pessoa Física
-                                </label>
-                            </li>
-                            <li>
-                                <input name="tab" class="tab-menu" type="radio" id="panel-2">
-                                
-                                <label for="panel-2">
-                                    <i class="ph-fill ph-buildings"></i>
-                                    Pessoa Jurídica
-                                </label>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div class="tab-content" id="panel-1">
-                        <div class="input-wrapper cpf-shield">
-                            <label for="cpf">CPF</label>
-                            <input id="cpf" type="text" name="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14">
-                        </div>
-
-                        <div class="input-wrapper date-shield">
-                            <label for="date">Data de Nascimento</label>
-                            <input id="date" type="date" name="birthdate" inputmode="numeric" placeholder="00/00/0000">
-                        </div>
-                        
-                        <div class="search-cpf">Nome:
-                            <div class="searching">
-                                <div class="loader-search"></div>
-                                <span>Buscando suas informações...</span>
-                            </div>
-                            <span class="nome_PF"></span>
-                            <input id="nome_PF" type="hidden" name="nome_PF" value="">
-                        </div>
-                    </div>
-                    
-                    <div class="tab-content" id="panel-2">
-                        <div class="input-wrapper cnpj-shield">
-                            <label for="cnpj">CNPJ</label>
-                            <input id="cnpj" type="text" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18">
-                        </div>
-                        
-                        <div class="search-cnpj">Razão social:
-                            <div class="searching">
-                                <div class="loader-search"></div>
-                                <span>Buscando informações da sua empresa...</span>
-                            </div>
-                            <span class="razao-social"></span>
-                            <input id="razao-social" type="hidden" name="razao_social" value="">
-                        </div>
-
-                        <div class="regime-container">
-                            <label>Regime da empresa:</label>
-                            <div class="regime-content">
-    
-                                <div>
-                                    <input type="radio" name="regime_calculado" id="simplesNacional" value="simples-nacional" disabled>
-                                    <label for="simplesNacional" class="regime-item">
-                                        <i class="ph ph-currency-dollar-simple"></i>
-                                        Simples Nacional
-                                    </label>
-                                </div>
-    
-                                <div>
-                                    <input type="radio" name="regime_calculado" id="lucroReal" value="lucro-presumido-real" disabled>
-                                    <label for="lucroReal" class="regime-item">
-                                        <i class="ph ph-chart-line"></i>
-                                        Lucro Presumido / Real
-                                    </label>
-                                </div>
-    
-                            </div>
-                        </div>
-                        
-                    </div>
-
+        <header>
+            <div class="content">
+                <div class="title-page">
+                    <img src="images/Logo Arte FIscal_branco.png" alt="prancheta de conferencia">
+                    <h1>Calculadora de Economia Tributária</h1>
                 </div>
-                
-                <button class="button-next-section" disabled>Próximo passo</button>
-            </section>
+                <img class="central-image" src="images/rapaz.png" alt="prancheta de conferencia">
+                <p>Olá, empresário(a)!</p>
+                <p>Chegou o momento de finalmente saber os valores que você pode recuperar da Receita para o caixa
+                    da sua empresa.</p>
+            </div>
+        </header>
 
-            <section class="section-two">
-                <div class="section-content">
+        <main>
+            <div class="form-title">
+                <h1>Dados da Empresa:</h1>
+                <span>Preencha os dados abaixo para calcularmos quanto você tem a receber do governo.</span>
+            </div>
+
+            <nav class="tab-section-container">
+                <ul>
+                    <li>
+                        <input name="tab" class="tab-menu" type="radio" id="panel-section-1" checked>
+                        <label for="panel-section-1"></label>
+                    </li>
+                    <li>
+                        <input name="tab" class="tab-menu" type="radio" id="panel-section-2">
+                        <label for="panel-section-2"></label>
+                    </li>
+                </ul>
+            </nav>
+
+            <form action="resultado" method="POST">
+                <section class="section-1_container">
+                    <div class="content">
+                        <nav class="tab-tipo_pessoa-container">
+                            <ul>
+                                <li>
+                                    <input name="tab" class="tab-pessoa" type="radio" id="panel-pessoa-1" checked>
+                                    <label for="panel-pessoa-1">
+                                        <i class="ph-fill ph-user"></i>
+                                        Pessoa Física
+                                    </label>
+                                </li>
+                                <li>
+                                    <input name="tab" class="tab-pessoa" type="radio" id="panel-pessoa-2">
+                                    
+                                    <label for="panel-pessoa-2">
+                                        <i class="ph-fill ph-buildings"></i>
+                                        Pessoa Jurídica
+                                    </label>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <div class="tab-content" id="panel-pessoa-1">
+                            <div class="input-wrapper">
+                                <label for="cpf">CPF</label>
+                                <input id="cpf" type="text" name="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14">
+                            </div>
+                            
+                            <div class="input-wrapper">
+                                <label for="birthdate">Data de Nascimento</label>
+                                <input id="birthdate" type="date" name="birthdate" inputmode="numeric">
+                            </div>
+
+                            <div class="result-container">
+                                Nome:
+                                <div class="searching">
+                                    <i class='bx bx-loader-circle bx-spin'></i>
+                                    Buscando suas informações...
+                                </div>
+                                <span class="result"></span>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="panel-pessoa-2">
+                            <div class="input-wrapper">
+                                <label for="cnpj">CNPJ</label>
+                                <input id="cnpj" type="text" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18">
+                            </div>
+                            
+                            <div class="result-container">
+                                Razão social:
+                                <div class="searching">
+                                    <i class='bx bx-loader-circle bx-spin'></i>
+                                    Buscando informações da sua empresa...
+                                </div>
+                                <span class="result"></span>
+                            </div>
+
+                            <div class="regime-container">
+                                <label>Regime da empresa:</label>
+                                <div class="regime-content">
+        
+                                    <div>
+                                        <input type="radio" name="regime_calculado" id="simplesNacional" value="simples-nacional" disabled>
+                                        <label for="simplesNacional" class="regime-item">
+                                            <i class="ph ph-currency-dollar-simple"></i>
+                                            Simples Nacional
+                                        </label>
+                                    </div>
+        
+                                    <div>
+                                        <input type="radio" name="regime_calculado" id="lucroReal" value="lucro-presumido-real" disabled>
+                                        <label for="lucroReal" class="regime-item">
+                                            <i class="ph ph-chart-line"></i>
+                                            Lucro Presumido / Real
+                                        </label>
+                                    </div>
+        
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button type="button" id="next-step" disabled>Próximo passo</button>
+
+                </section>
+
+                <section class="section-2_container">
                     
-                    <div class="faturamento-shields">
-                        
-                        <div class="input-wrapper number-shield">
-                            <label for="faturamento">Valor da compra mensal de insumos (R$)</label>
-                            <input id="faturamento" name="vlrFatMensal" type="text" inputmode="numeric" placeholder="R$" maxlength="14">
-                        </div>
-
-                        <!-- <div class="input-wrapper">
-                            <label for="pctFatInter">Percentual do faturamento destinado para outros estados (%)</label>
-                            <input id="pctFatInter" class="porcent" name="pctFatInter" type="text" inputmode="numeric" placeholder="%" maxlength="5">
-                        </div>
-
-                        <div class="input-wrapper number-shield">
-                            <label for="vlrComprasMensal">Valor médio de compras mensal (R$)</label>
-                            <input id="vlrComprasMensal" name="vlrComprasMensal" type="text" inputmode="numeric" placeholder="R$" maxlength="14">
-                        </div>
-
+                    <div class="section-content">
                         <div class="input-wrapper">
-                            <label for="pctComprasInter">Percentual de compras de outros estados (%)</label>
-                            <input id="pctComprasInter" class="porcent" name="pctComprasInter" type="text" inputmode="numeric" placeholder="%" maxlength="5">
-                        </div> -->
-                        
-                        <!-- <div class="input-wrapper">
-                            <label for="pctIVA_MVA">Informar o IVA/MVA do seu segmento (%)</label>
-                            <input id="pctIVA_MVA" class="porcent" name="pctIVA_MVA" type="text" inputmode="numeric" placeholder="%" maxlength="5">
-                        </div> -->
-                        
-                        <input id="calculo-simples" type="hidden" name="calculo_monofasico" value="">
-                        <input id="regime-da-empresa" type="hidden" name="regime_da_empresa" value="">
+                            <label for="insumos">Valor da compra mensal de insumos (R$)</label>
+                            <input id="insumos" name="vlrFatMensal" type="text" inputmode="numeric" placeholder="R$" maxlength="14">
+                        </div>
                     </div>
-                           
-                </div>
-                <button type="submit" disabled>Resultado</button>
-            </section>
-    
-        </form>
-    </main>
 
-    <div class="modal hide">
+                    <button type="submit" id="submit" disabled>Resultado</button>
+                </section>
+            </form>
 
-        <div class="modal-content">
-            <i class="ph-light ph-x"></i>
-            
-            <div class="companie">
-                <h2 id="razao-social"></h2>
-                <div class="codeCnae-content">
-                    <!-- <i class="ph-fill ph-x-circle"></i> -->
-                    <div>
-                        <!-- <p id="codeCnae" class="item"><span>69.20-6-01</span> - Atividades de contabilidade</p> EXEMPLO -->
-                    </div>
-                    <img id="0" src="images/1f62b.gif" alt="Um emoji triste.">
-                </div>
+            <div class="loading-section-transition">
+                <i class='bx bx-loader-circle bx-spin'></i>
             </div>
-            
-            <p id="message">Desculpe!<br>Para esse seguimento, não há valores de impostos à serem recuparados. No entanto,
-                caso tenha dúvidas se o <span>Simples Nacional</span> é o melhor regime para a sua empresa, contacte-nos agora!</p>
 
-            <span class="arrow-down"></span>
+        </main>
 
-            <a class="contact" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511956092734" target="_blank">
-                Quero falar com a equipe Arte Fiscal.
-                <img src="images/whatsapp-icon.png" alt="Entrar em contato no WhatsApp">
-            </a>
-    
+        <div class="modal hide">
+
+            <div class="modal-content">
+                <i class="ph-light ph-x"></i>
+
+                <div class="companie">
+                    <h2 id="razao-social"></h2>
+                    <div class="codeCnae-content">
+                        <!-- <i class="ph-fill ph-x-circle"></i> -->
+                        <div>
+                            <!-- <p id="codeCnae" class="item"><span>69.20-6-01</span> - Atividades de contabilidade</p> EXEMPLO -->
+                        </div>
+                        <img id="0" src="images/1f62b.gif" alt="Um emoji triste.">
+                    </div>
+                </div>
+
+                <p id="message">Desculpe!<br>Para esse seguimento, não há valores de impostos à serem recuparados.
+                    No entanto,
+                    caso tenha dúvidas se o <span>Simples Nacional</span> é o melhor regime para a sua empresa,
+                    contacte-nos agora!</p>
+
+                <span class="arrow-down"></span>
+
+                <a class="contact" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511956092734" target="_blank">
+                    Quero falar com a equipe Arte Fiscal.
+                    <img src="images/whatsapp-icon.png" alt="Entrar em contato no WhatsApp">
+                </a>
+
+            </div>
+
         </div>
-    
-    </div>
 
-
-    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
-    <script type="module" src="javascripts/index.js"></script>
-    <script src="javascripts/loaderInitial.js"></script>
+        <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+        <script type="module" src="javascripts/index.js"></script>
+        <script src="javascripts/loaderInitial.js"></script>
 </body>
+
 </html>

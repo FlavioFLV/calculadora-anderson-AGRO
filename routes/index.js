@@ -80,7 +80,7 @@ router.get('/api/consulta-cnpj', async function(req, res, next) {
     
             if (data.atividade_economica_lista[i].substr(0, 10) == codigoCnaeList[j].cod) {
               console.log("ENCONTREI", codigoCnaeList[j].calculo)
-              validateCnae = true;          
+              validateCnae = true;
               data.validateCnae = validateCnae;
               data.calculo_monofasico = codigoCnaeList[j].calculo
     
@@ -105,8 +105,9 @@ router.get('/api/consulta-cnpj', async function(req, res, next) {
 // router.post('/contato', async function(req, res, next) {
 router.post('/resultado', async function(req, res) {
   const data = req.body;
-  
-  const insumosMensal = Number(data.vlrFatMensal) * 0.0925
+
+  const insumosMensal = Number(data.vlrFatMensal.replaceAll(".", "").replace(",",".")) * 0.0925;
+  // const insumosMensal = Number(data.vlrFatMensal) * 0.0925
   const insumosAnual = insumosMensal * 12
 
   console.log(insumosMensal)
