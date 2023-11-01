@@ -355,7 +355,7 @@ section button:disabled {
     left: 0;
     display: none;
     place-content: center;
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(255,255,255,.1);
     backdrop-filter: blur(4px);
 }
 .loading-section-transition[loading] {
