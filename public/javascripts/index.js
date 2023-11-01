@@ -113,11 +113,15 @@ const tabSection = document.querySelectorAll(".tab-section-container ul li input
 const loadingSectionTransition = document.querySelector(".loading-section-transition");
 
 nextStepButton.addEventListener("click", () => {
-    // loadingSectionTransition.setAttribute("loading", "")
-    // setInterval(() => {
+    loadingSectionTransition.setAttribute("loading", "")
+    setTimeout(() => {
         tabSection[1].click();
-        // loadingSectionTransition.removeAttribute("loading")
-    // }, 1000);
+        loadingSectionTransition.removeAttribute("loading")
+    }, 1000);
+})
+
+submitButton.addEventListener("click", () => {
+    numberShield.value = numberShield.value.replaceAll(".", "").replace(",", ".");
 })
 
 // function validateShieldsSecOne() {

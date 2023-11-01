@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
 
 
 router.get('/', function(req, res, next) {
@@ -106,12 +104,9 @@ router.get('/api/consulta-cnpj', async function(req, res, next) {
 router.post('/resultado', async function(req, res) {
   const data = req.body;
 
-  const insumosMensal = Number(data.vlrFatMensal.replaceAll(".", "").replace(",",".")) * 0.0925;
+  const insumosMensal = Number(data.vlrFatMensal) * 0.0925;
   // const insumosMensal = Number(data.vlrFatMensal) * 0.0925
   const insumosAnual = insumosMensal * 12
-
-  console.log(insumosMensal)
-  console.log(insumosAnual)
   
   res.status(200).render("result", {
     title: 'Calculadora | Resultado',
